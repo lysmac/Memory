@@ -1,3 +1,10 @@
+addEventListener("DOMContentLoaded", main);
+
+function main() {
+  placeOutFruits();
+  listenersAndClicks();
+}
+
 const fruits: Array<string> = ["🍍", "🍒", "🍊", "🍋", "🍓", "🍑", "🍌", "🍎"];
 
 // Shuffles an array
@@ -28,13 +35,24 @@ function placeOutFruits() {
 
   mixedFruits.forEach((fruit) => {
     const div = document.createElement("div");
-    div.className = "card";
+    div.classList.add("card", "cardBack");
     div.textContent = fruit;
     board?.appendChild(div);
-    console.log(fruit);
 
-    // main.appendChild(document.createElement("div")).textContent = fruit;
+    // div.addEventListener("click", clickedCard);
+
+    console.log(fruit);
   });
 }
 
-placeOutFruits();
+function listenersAndClicks() {
+  let memoryCards = Array.from(document.querySelectorAll(".card"));
+
+  memoryCards.forEach((card) => {
+    card.addEventListener("click", clickedOnCard);
+  });
+}
+function clickedOnCard(e: Event) {
+  const target = e.currentTarget as Element;
+  target.classList.toggle("cardBack");
+}

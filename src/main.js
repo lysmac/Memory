@@ -1,3 +1,8 @@
+addEventListener("DOMContentLoaded", main);
+function main() {
+    placeOutFruits();
+    listenersAndClicks();
+}
 var fruits = ["🍍", "🍒", "🍊", "🍋", "🍓", "🍑", "🍌", "🍎"];
 // Shuffles an array
 function shuffle(arr) {
@@ -24,11 +29,20 @@ function placeOutFruits() {
     var board = document.getElementById("board");
     mixedFruits.forEach(function (fruit) {
         var div = document.createElement("div");
-        div.className = "card";
+        div.classList.add("card", "cardBack");
         div.textContent = fruit;
         board === null || board === void 0 ? void 0 : board.appendChild(div);
+        // div.addEventListener("click", clickedCard);
         console.log(fruit);
-        // main.appendChild(document.createElement("div")).textContent = fruit;
     });
 }
-placeOutFruits();
+function listenersAndClicks() {
+    var memoryCards = Array.from(document.querySelectorAll(".card"));
+    memoryCards.forEach(function (card) {
+        card.addEventListener("click", clickedOnCard);
+    });
+}
+function clickedOnCard(e) {
+    var target = e.currentTarget;
+    target.classList.toggle("cardBack");
+}

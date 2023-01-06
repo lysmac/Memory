@@ -37,6 +37,8 @@ main {
 
 .cardBack {
   background-color: black;
+  color: white;
+  content: "normal";
   font-size: 0;
 }
 
