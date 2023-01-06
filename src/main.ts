@@ -55,4 +55,23 @@ function listenersAndClicks() {
 function clickedOnCard(e: Event) {
   const target = e.currentTarget as Element;
   target.classList.toggle("cardBack");
+  target.classList.toggle("cardShown");
+  pairCheck();
+}
+
+function pairCheck() {
+  let memoryCards = Array.from(document.querySelectorAll(".card"));
+  let pairs: string[] = new Array();
+
+  memoryCards.forEach((card) => {
+    if (card.classList.contains("cardShown")) {
+      const fruitEmoji: string | null = card.textContent;
+      if (fruitEmoji === null) {
+        alert("null");
+      } else {
+        pairs.push(fruitEmoji);
+      }
+      // console.log(pairs);
+    }
+  });
 }

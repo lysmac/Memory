@@ -45,4 +45,22 @@ function listenersAndClicks() {
 function clickedOnCard(e) {
     var target = e.currentTarget;
     target.classList.toggle("cardBack");
+    target.classList.toggle("cardShown");
+    pairCheck();
+}
+function pairCheck() {
+    var memoryCards = Array.from(document.querySelectorAll(".card"));
+    var pairs = new Array();
+    memoryCards.forEach(function (card) {
+        if (card.classList.contains("cardShown")) {
+            var fruitEmoji = card.textContent;
+            if (fruitEmoji === null) {
+                alert("null");
+            }
+            else {
+                pairs.push(fruitEmoji);
+            }
+            // console.log(pairs);
+        }
+    });
 }
