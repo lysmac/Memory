@@ -5,6 +5,16 @@ function main() {
     listenersAndClicks();
 }
 const fruits = ["🍍", "🍒", "🍊", "🍋", "🍓", "🍑", "🍌", "🍎"];
+let par = new Array();
+let arrayOfFlippedCards = new Array();
+let counter = 0;
+// Adds eventlisteners on all playingcards
+function listenersAndClicks() {
+    const memoryCards = Array.from(document.querySelectorAll(".card"));
+    memoryCards.forEach((card) => {
+        card.addEventListener("click", clickedOnCard);
+    });
+}
 // Shuffles an array
 function shuffle(arr) {
     let shuffled = arr
@@ -21,6 +31,7 @@ function mergeArrays() {
     const reShuffle = shuffle(shuffledDoubleFruits);
     return reShuffle;
 }
+// Places out the fruit cards on the board
 function placeOutFruits() {
     const mixedFruits = mergeArrays();
     const board = document.getElementById("board");
@@ -31,13 +42,7 @@ function placeOutFruits() {
         board?.appendChild(div);
     });
 }
-function listenersAndClicks() {
-    let memoryCards = Array.from(document.querySelectorAll(".card"));
-    memoryCards.forEach((card) => {
-        card.addEventListener("click", clickedOnCard);
-    });
-}
-let counter = 0;
+// What happens when you click on a playing card
 function clickedOnCard(e) {
     const target = e.currentTarget;
     target.classList.toggle("cardBack");
@@ -45,8 +50,7 @@ function clickedOnCard(e) {
     counter++;
     pairs(counter, target);
 }
-let par = new Array();
-let arrayOfFlippedCards = new Array();
+// Takes the current amount of flipped cards, and which card was flipped, and gives an outcome based on that
 function pairs(flippedCards, target) {
     arrayOfFlippedCards.push(target);
     const fruit = target.textContent;
@@ -71,9 +75,8 @@ function pairs(flippedCards, target) {
         }
         reset();
     }
-    console.log(par);
-    console.log(arrayOfFlippedCards);
 }
+// Resets the counter and arrays used for seeing if the cards are matched
 function reset() {
     counter = 0;
     par.length = 0;
