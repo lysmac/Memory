@@ -26,13 +26,27 @@ main {
   width: 40rem;
 }
 
+@media screen and (max-width: 650px) {
+  body {
+    background-color: lightgreen;
+  }
+  main {
+    width: 100%;
+  }
+  .card {
+    flex: 1;
+    font-size: 1rem;
+    background-color: red;
+  }
+}
+
 .card {
   border: 1px solid black;
   height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 7rem;
 }
 
 .cardShown {
@@ -43,10 +57,9 @@ main {
   z-index: 2;
 }
 
-#board {
-}
 .cardBack {
   background-color: black;
+  background-image: url(bg.gif);
   color: white;
   content: "normal";
   z-index: 1;
