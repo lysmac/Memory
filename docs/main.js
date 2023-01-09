@@ -45,10 +45,14 @@ function placeOutFruits() {
 // What happens when you click on a playing card
 function clickedOnCard(e) {
     const target = e.currentTarget;
-    target.classList.toggle("cardBack");
-    target.classList.toggle("cardShown");
-    counter++;
-    pairs(counter, target);
+    if (target.classList.contains("cardComplete")) {
+    }
+    else {
+        target.classList.toggle("cardBack");
+        target.classList.toggle("cardShown");
+        counter++;
+        pairs(counter, target);
+    }
 }
 // Takes the current amount of flipped cards, and which card was flipped, and gives an outcome based on that
 function pairs(flippedCards, target) {
@@ -63,7 +67,7 @@ function pairs(flippedCards, target) {
     if (flippedCards === 2) {
         if (par[0] === par[1]) {
             arrayOfFlippedCards.forEach((card) => {
-                card.classList.toggle("cardComplete");
+                card.classList.add("cardComplete");
             });
         }
         else {
