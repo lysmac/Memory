@@ -5,7 +5,7 @@
     "module": "commonjs",
     "rootDir": "src",
     "sourceMap": true,
-    "outDir": "public",
+    "outDir": "docs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
