@@ -63,6 +63,10 @@ function pairCheck() {
   let memoryCards = Array.from(document.querySelectorAll(".card"));
   let pairs: string[] = new Array();
 
+  let counter: number = 0;
+
+  let fruitOne: string;
+
   memoryCards.forEach((card) => {
     if (card.classList.contains("cardShown")) {
       const fruitEmoji: string | null = card.textContent;
@@ -70,6 +74,12 @@ function pairCheck() {
         alert("null");
       } else {
         pairs.push(fruitEmoji);
+        counter++;
+        if (counter === 2) {
+          // alert("första", pairs[0]);
+          alert(pairs[1]);
+        }
+        // alert(fruitOne);
       }
       // console.log(pairs);
     }
