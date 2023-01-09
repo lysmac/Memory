@@ -28,9 +28,6 @@ function mergeArrays<String>() {
 
 function placeOutFruits() {
   const mixedFruits = mergeArrays();
-
-  console.log(mixedFruits);
-
   const board = document.getElementById("board");
 
   mixedFruits.forEach((fruit) => {
@@ -38,10 +35,6 @@ function placeOutFruits() {
     div.classList.add("card", "cardBack");
     div.textContent = fruit;
     board?.appendChild(div);
-
-    // div.addEventListener("click", clickedCard);
-
-    console.log(fruit);
   });
 }
 
@@ -52,36 +45,52 @@ function listenersAndClicks() {
     card.addEventListener("click", clickedOnCard);
   });
 }
+
+let counter: number = 0;
+
 function clickedOnCard(e: Event) {
   const target = e.currentTarget as Element;
   target.classList.toggle("cardBack");
   target.classList.toggle("cardShown");
-  pairCheck();
+
+  counter++;
+
+  pairs(counter, target);
 }
 
-function pairCheck() {
-  let memoryCards = Array.from(document.querySelectorAll(".card"));
-  let pairs: string[] = new Array();
+let par: string[] = new Array();
+let arrayOfFlippedCards: Element[] = new Array();
 
-  let counter: number = 0;
+function pairs(flippedCards: number, target: Element) {
+  arrayOfFlippedCards.push(target);
+  const fruit: string | null = target.textContent;
+  if (fruit === null) {
+    alert("null");
+  } else {
+    par.push(fruit);
+  }
 
-  let fruitOne: string;
-
-  memoryCards.forEach((card) => {
-    if (card.classList.contains("cardShown")) {
-      const fruitEmoji: string | null = card.textContent;
-      if (fruitEmoji === null) {
-        alert("null");
-      } else {
-        pairs.push(fruitEmoji);
-        counter++;
-        if (counter === 2) {
-          // alert("första", pairs[0]);
-          alert(pairs[1]);
-        }
-        // alert(fruitOne);
-      }
-      // console.log(pairs);
+  if (flippedCards === 2) {
+    if (par[0] === par[1]) {
+      arrayOfFlippedCards.forEach((card) => {
+        card.classList.toggle("cardComplete");
+      });
+    } else {
+      arrayOfFlippedCards.forEach((card) => {
+        setTimeout(function () {
+          card.classList.toggle("cardBack");
+        }, 500);
+      });
     }
-  });
+
+    reset();
+  }
+  console.log(par);
+  console.log(arrayOfFlippedCards);
+}
+
+function reset() {
+  counter = 0;
+  par.length = 0;
+  arrayOfFlippedCards.length = 0;
 }
