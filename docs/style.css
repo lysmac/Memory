@@ -59,7 +59,7 @@ main {
 
 .cardBack {
   background-color: black;
-  background-image: url(bg.gif);
+
   color: white;
   content: "normal";
   z-index: 1;
