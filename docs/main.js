@@ -8,6 +8,7 @@ const fruits = ["🍍", "🍒", "🍊", "🍋", "🍓", "🍑", "🍌", "🍎"];
 let par = new Array();
 let arrayOfFlippedCards = new Array();
 let counter = 0;
+let numberOfFlips = 0;
 // Adds eventlisteners on all playingcards
 function listenersAndClicks() {
     const memoryCards = Array.from(document.querySelectorAll(".card"));
@@ -45,12 +46,18 @@ function placeOutFruits() {
 // What happens when you click on a playing card
 function clickedOnCard(e) {
     const target = e.currentTarget;
-    if (target.classList.contains("cardComplete")) {
-    }
-    else {
+    const visualFlipCounter = document.getElementById("counter");
+    if (!target.classList.contains("cardComplete")) {
         target.classList.toggle("cardBack");
         target.classList.toggle("cardShown");
         counter++;
+        numberOfFlips++;
+        if (visualFlipCounter === null) {
+            alert("undefined");
+        }
+        else {
+            visualFlipCounter.innerHTML = `Flips: ${numberOfFlips}`;
+        }
         pairs(counter, target);
     }
 }
