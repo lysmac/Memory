@@ -15,17 +15,23 @@ body {
 header {
   width: 100vw;
   display: flex;
-  justify-content: center;
-  font-size: 7rem;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
   font-family: "Lobster", cursive;
+  margin-bottom: 1rem;
 }
 
-#counter {
-  position: absolute;
-  top: 1rem;
-  left: 3rem;
-  font-size: 5rem;
+h1 {
+  font-size: 7rem;
+}
+
+#scoreboard {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40rem;
+  border-bottom: 5px solid black;
 }
 
 main {
