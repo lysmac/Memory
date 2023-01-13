@@ -71,6 +71,7 @@ function clickedOnCard(e: Event) {
     }
     pairs(counter, target);
   }
+  win();
 }
 
 // Takes the current amount of flipped cards, and which card was flipped, and gives an outcome based on that
@@ -97,6 +98,22 @@ function pairs(flippedCards: number, target: Element) {
     }
 
     reset();
+  }
+}
+
+// Checks if you have won.
+//Loops through all cards to see if they have the cardComplete class on them, if they do, do win msg
+function win() {
+  const foundPairs = Array.from(document.querySelectorAll(".card"));
+
+  let allActive = foundPairs.every((div) =>
+    div.classList.contains("cardComplete")
+  );
+
+  console.log(allActive);
+
+  if (allActive === true) {
+    alert(`You won in ${numberOfFlips} flips!`);
   }
 }
 
