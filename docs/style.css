@@ -18,6 +18,13 @@ header {
   margin-bottom: 2rem;
 }
 
+#counter {
+  position: absolute;
+  top: 1rem;
+  left: 3rem;
+  font-size: 5rem;
+}
+
 main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
