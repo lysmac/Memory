@@ -71,6 +71,7 @@ function clickedOnCard(e: Event) {
     }
     pairs(counter, target);
   }
+  // Checks if you've won the game with this card flip
   win();
 }
 
