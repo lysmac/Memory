@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
 * {
   margin: 0;
 }
@@ -14,8 +16,9 @@ header {
   width: 100vw;
   display: flex;
   justify-content: center;
-  font-size: 6rem;
+  font-size: 7rem;
   margin-bottom: 2rem;
+  font-family: "Lobster", cursive;
 }
 
 #counter {
@@ -54,6 +57,7 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 7rem;
+  border-radius: 4px;
 }
 
 .cardShown {
