@@ -6,10 +6,10 @@
 
 body {
   display: flex;
-
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  background-color: #ffc300;
 }
 
 header {
@@ -19,10 +19,12 @@ header {
   align-items: center;
   font-family: "Lobster", cursive;
   margin-bottom: 1rem;
+  color: #001d3d;
 }
 
 h1 {
   font-size: 7rem;
+  color: #001d3d;
 }
 
 #scoreboard {
@@ -31,7 +33,7 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   width: 40rem;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid #001d3d;
 }
 
 main {
@@ -44,7 +46,7 @@ main {
 
 @media screen and (max-width: 650px) {
   body {
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
   }
   main {
     width: 100%;
@@ -52,18 +54,18 @@ main {
   .card {
     flex: 1;
     font-size: 1rem;
-    background-color: red;
   }
 }
 
 .card {
-  border: 1px solid black;
+  border: 1px solid #003566;
   height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 7rem;
   border-radius: 4px;
+  background-color: white;
 }
 
 .cardShown {
@@ -75,7 +77,7 @@ main {
 }
 
 .cardBack {
-  background-color: black;
+  background-color: #003566;
 
   color: white;
   content: "normal";
